@@ -9,18 +9,18 @@ int nhandt(int dtA, int dtB, int bac, int dtToiGian) {
     int ketQua = 0;
 
     for (int i = 0; i < bac; i++) {
-        // Neu bit cuoi cua B bang 1 thi cong (XOR) A vao ket qua
+        // Neu bit cuoi cua B bang 1 thi cong (XOR) voi A
         if ((dtB & 1) == 1) {
             ketQua = ketQua ^ dtA;
         }
 
-        // Kiem tra bit cao nhat cua A (tai vi tri bac - 1)
+        // Kiem tra bit cao nhat cua A 
         int bitmax = dtA & (1 << (bac - 1));
 
-        // Dich trai A 1 bit (tuong duong nhan voi x)
+        // Dich trai A 1 bit 
         dtA = dtA << 1;
 
-        // Neu bit cao nhat bang 1 (bi tran bac), rut gon modulo voi da thuc toi gian
+        // Neu bit cao nhat bang 1, thi modulo voi da thuc toi gian
         if (bitmax != 0) {
             dtA = dtA ^ dtToiGian;
         }
